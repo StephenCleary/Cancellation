@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22609.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{190A6DF0-09D2-4E25-AFED-5B7143441E45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FA49D3F7-E2E4-41EC-A1D5-3C3140FC917A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Nito.Cancellation", "src\Nito.Cancellation\Nito.Cancellation.kproj", "{D7AB5ED8-1B5B-468B-A3BA-8D15DC81EEAC}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Nito.Cancellation", "src\Nito.Cancellation\Nito.Cancellation.xproj", "{D7AB5ED8-1B5B-468B-A3BA-8D15DC81EEAC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UnitTests", "test\UnitTests\UnitTests.kproj", "{69835B82-BC52-4A97-AA51-276EE69DBAC9}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UnitTests", "test\UnitTests\UnitTests.xproj", "{69835B82-BC52-4A97-AA51-276EE69DBAC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2763A84F-E2CF-4E07-B0B2-0C413D35D2E7}"
 	ProjectSection(SolutionItems) = preProject
