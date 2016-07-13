@@ -1,10 +1,19 @@
 {
-  "version": "1.0.0-delta-3",
+  "version": "1.0.0-eta-01",
   "authors": [ "Stephen Cleary" ],
   "description": "Helper types for working with cancellation tokens and sources.",
   "buildOptions": {
     "warningsAsErrors": true,
     "xmlDoc": true
+  },
+  "packOptions": {
+    "tags": [ "cancellation", "cancellationtoken" ],
+    "projectUrl": "https://github.com/StephenCleary/Cancellation",
+    "licenseUrl": "https://raw.githubusercontent.com/StephenCleary/Cancellation/master/LICENSE",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/StephenCleary/Cancellation.git"
+    }
   },
   "frameworks": {
     "netstandard1.0": {
@@ -16,9 +25,9 @@
     },
     ".NETPortable,Version=v4.5,Profile=Profile259": {
       "frameworkAssemblies": {
-        "System.Collections": "",
-        "System.Runtime": "",
-        "System.Threading.Tasks": ""
+        "System.Collections": { "type": "build" },
+        "System.Runtime": { "type": "build" },
+        "System.Threading.Tasks": { "type": "build" }
       }
     }
   }
