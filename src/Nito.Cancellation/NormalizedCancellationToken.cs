@@ -118,7 +118,7 @@ namespace Nito
             if (alreadyCanceled.IsCancellationRequested)
                 return new NormalizedCancellationToken(alreadyCanceled);
             var tokenArray = new CancellationToken[tokens.Count];
-            ((ICollection<CancellationToken>)tokenArray).CopyTo(tokenArray, 0);
+            ((ICollection<CancellationToken>)tokens).CopyTo(tokenArray, 0);
             return new NormalizedCancellationToken(CancellationTokenSource.CreateLinkedTokenSource(tokenArray));
         }
 
