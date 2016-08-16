@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nito.AsyncEx;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -7,7 +8,7 @@ namespace Nito
     /// <summary>
     /// A cancellation token wrapper that may represent multiple linked cancellation tokens. Instances of this type should always be disposed.
     /// </summary>
-    public sealed class NormalizedCancellationToken : IDisposable
+    public sealed class NormalizedCancellationToken : SingleDisposable<object>
     {
         /// <summary>
         /// The <see cref="CancellationTokenSource"/>, if any. If this is not <c>null</c>, then <see cref="_token"/> is <c>_cts.Token</c>.
@@ -23,17 +24,20 @@ namespace Nito
         /// Creates a normalized cancellation token that can never be canceled.
         /// </summary>
         public NormalizedCancellationToken()
+            : this(null)
         {
         }
 
         /// <summary>
         /// Creates a normalized cancellation token from a <see cref="CancellationTokenSource"/>. <see cref="Token"/> is set to the <see cref="CancellationTokenSource.Token"/> property of <paramref name="cts"/>.
         /// </summary>
-        /// <param name="cts">The source for this token.</param>
+        /// <param name="cts">The source for this token. May be <c>null</c> to create a normalized cancellation token that can never be canceled.</param>
         public NormalizedCancellationToken(CancellationTokenSource cts)
+            : base(new object())
         {
             _cts = cts;
-            _token = cts.Token;
+            if (cts != null)
+                _token = cts.Token;
         }
 
         /// <summary>
@@ -41,6 +45,7 @@ namespace Nito
         /// </summary>
         /// <param name="token">The source for this token.</param>
         public NormalizedCancellationToken(CancellationToken token)
+            : base(null)
         {
             _token = token;
         }
@@ -48,7 +53,7 @@ namespace Nito
         /// <summary>
         /// Releases any resources used by this normalized cancellation token.
         /// </summary>
-        public void Dispose()
+        protected override void Dispose(object context)
         {
             if (_cts != null)
                 _cts.Dispose();
@@ -86,18 +91,24 @@ namespace Nito
         /// <summary>
         /// Reduces a set of cancellation tokens by removing any cancellation tokens that cannot be canceled. If any tokens are already canceled, the returned token will be canceled.
         /// </summary>
-        /// <param name="cancellationTokens">The cancellation tokens to reduce.</param>
+        /// <param name="cancellationTokens">The cancellation tokens to reduce. May not be <c>null</c>.</param>
         public static NormalizedCancellationToken Normalize(params CancellationToken[] cancellationTokens)
         {
+            if (cancellationTokens == null)
+                throw new ArgumentNullException(nameof(cancellationTokens));
+
             return Normalize((IEnumerable<CancellationToken>)cancellationTokens);
         }
 
         /// <summary>
         /// Reduces a set of cancellation tokens by removing any cancellation tokens that cannot be canceled. If any tokens are already canceled, the returned token will be canceled.
         /// </summary>
-        /// <param name="cancellationTokens">The cancellation tokens to reduce.</param>
+        /// <param name="cancellationTokens">The cancellation tokens to reduce. May not be <c>null</c>.</param>
         public static NormalizedCancellationToken Normalize(IEnumerable<CancellationToken> cancellationTokens)
         {
+            if (cancellationTokens == null)
+                throw new ArgumentNullException(nameof(cancellationTokens));
+
             var tokens = new List<CancellationToken>(CancelableTokens(cancellationTokens));
             if (tokens.Count == 0)
                 return new NormalizedCancellationToken();
