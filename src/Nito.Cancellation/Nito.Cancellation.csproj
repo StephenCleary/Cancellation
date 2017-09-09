@@ -15,9 +15,6 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/StephenCleary/Cancellation/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/StephenCleary/Cancellation.git</RepositoryUrl>
-    <PublicSign>True</PublicSign>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nito.Disposables" Version="1.2.2" />
+    <PackageReference Include="Nito.Disposables" Version="1.2.3" />
   </ItemGroup>
 
 </Project>
