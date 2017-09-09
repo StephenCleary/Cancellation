@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Helper types for working with cancellation tokens and sources.</Description>
-    <VersionPrefix>1.0.4</VersionPrefix>
+    <VersionPrefix>1.0.5</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Stephen Cleary</Authors>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
