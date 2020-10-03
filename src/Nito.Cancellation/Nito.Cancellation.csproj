@@ -2,28 +2,12 @@
 
   <PropertyGroup>
     <Description>Helper types for working with cancellation tokens and sources.</Description>
-    <VersionPrefix>1.0.5</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <Authors>Stephen Cleary</Authors>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>Nito.Cancellation</AssemblyName>
-    <PackageId>Nito.Cancellation</PackageId>
     <PackageTags>cancellation;cancellationtoken</PackageTags>
-    <PackageProjectUrl>https://github.com/StephenCleary/Cancellation</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/StephenCleary/Cancellation/master/LICENSE</PackageLicenseUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/StephenCleary/Cancellation.git</RepositoryUrl>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>full</DebugType>
-    <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nito.Disposables" Version="1.2.3" />
+    <PackageReference Include="Nito.Disposables" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

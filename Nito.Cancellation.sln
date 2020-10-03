@@ -1,19 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{190A6DF0-09D2-4E25-AFED-5B7143441E45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FA49D3F7-E2E4-41EC-A1D5-3C3140FC917A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2763A84F-E2CF-4E07-B0B2-0C413D35D2E7}"
-	ProjectSection(SolutionItems) = preProject
-		appveyor.yml = appveyor.yml
-		Build.ps1 = Build.ps1
-		Coverage.ps1 = Coverage.ps1
-		Version.ps1 = Version.ps1
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nito.Cancellation", "src\Nito.Cancellation\Nito.Cancellation.csproj", "{D7AB5ED8-1B5B-468B-A3BA-8D15DC81EEAC}"
 EndProject
@@ -40,5 +32,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D7AB5ED8-1B5B-468B-A3BA-8D15DC81EEAC} = {190A6DF0-09D2-4E25-AFED-5B7143441E45}
 		{69835B82-BC52-4A97-AA51-276EE69DBAC9} = {FA49D3F7-E2E4-41EC-A1D5-3C3140FC917A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC760768-7563-49A5-B04E-635F7957C47F}
 	EndGlobalSection
 EndGlobal

@@ -13,7 +13,7 @@ namespace Nito
         /// <summary>
         /// The <see cref="CancellationTokenSource"/>, if any. If this is not <c>null</c>, then <see cref="_token"/> is <c>_cts.Token</c>.
         /// </summary>
-        private readonly CancellationTokenSource _cts;
+        private readonly CancellationTokenSource? _cts;
 
         /// <summary>
         /// The <see cref="Token"/>. If <see cref="_cts"/> is not <c>null</c>, then this is <c>_cts.Token</c>.
@@ -32,7 +32,7 @@ namespace Nito
         /// Creates a normalized cancellation token from a <see cref="CancellationTokenSource"/>. <see cref="Token"/> is set to the <see cref="CancellationTokenSource.Token"/> property of <paramref name="cts"/>.
         /// </summary>
         /// <param name="cts">The source for this token. May be <c>null</c> to create a normalized cancellation token that can never be canceled.</param>
-        public NormalizedCancellationToken(CancellationTokenSource cts)
+        public NormalizedCancellationToken(CancellationTokenSource? cts)
             : base(new object())
         {
             _cts = cts;
@@ -45,7 +45,7 @@ namespace Nito
         /// </summary>
         /// <param name="token">The source for this token.</param>
         public NormalizedCancellationToken(CancellationToken token)
-            : base(null)
+            : base(null!)
         {
             _token = token;
         }
@@ -53,16 +53,12 @@ namespace Nito
         /// <summary>
         /// Releases any resources used by this normalized cancellation token.
         /// </summary>
-        protected override void Dispose(object context)
-        {
-            if (_cts != null)
-                _cts.Dispose();
-        }
+        protected override void Dispose(object context) => _cts?.Dispose();
 
         /// <summary>
         /// Gets the <see cref="CancellationToken"/> for this normalized cancellation token.
         /// </summary>
-        public CancellationToken Token { get { return _token; } }
+        public CancellationToken Token => _token;
 
         /// <summary>
         /// Creates a cancellation token that is canceled after the due time.
