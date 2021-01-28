@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Helper types for working with cancellation tokens and sources.</Description>
-    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net461</TargetFrameworks>
     <PackageTags>cancellation;cancellationtoken</PackageTags>
   </PropertyGroup>
 
