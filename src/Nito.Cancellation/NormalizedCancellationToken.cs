@@ -90,9 +90,7 @@ namespace Nito
         /// <param name="cancellationTokens">The cancellation tokens to reduce. May not be <c>null</c>.</param>
         public static NormalizedCancellationToken Normalize(params CancellationToken[] cancellationTokens)
         {
-            if (cancellationTokens == null)
-                throw new ArgumentNullException(nameof(cancellationTokens));
-
+            _ = cancellationTokens ?? throw new ArgumentNullException(nameof(cancellationTokens));
             return Normalize((IEnumerable<CancellationToken>)cancellationTokens);
         }
 
@@ -102,9 +100,7 @@ namespace Nito
         /// <param name="cancellationTokens">The cancellation tokens to reduce. May not be <c>null</c>.</param>
         public static NormalizedCancellationToken Normalize(IEnumerable<CancellationToken> cancellationTokens)
         {
-            if (cancellationTokens == null)
-                throw new ArgumentNullException(nameof(cancellationTokens));
-
+            _ = cancellationTokens ?? throw new ArgumentNullException(nameof(cancellationTokens));
             var tokens = new List<CancellationToken>(CancelableTokens(cancellationTokens));
             if (tokens.Count == 0)
                 return new NormalizedCancellationToken();
